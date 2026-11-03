@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kenji's Bizarre Portfolio — Kenji Chapuis--Voisain</title>
+<meta name="description" content="Portfolio BTS SIO SLAM de Kenji Chapuis--Voisain : projets, CV, expériences, certifications, veille technologique et passions — dans un style bizarre et animé.">
+<meta name="theme-color" content="#1a0730">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bangers&family=Barlow+Condensed:ital,wght@0,500;0,700;1,700&family=Dela+Gothic+One&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Fond animé : dégradé + trame manga + canvas (lignes de vitesse, ゴゴゴ) -->
+<div class="bg" aria-hidden="true">
+  <div class="bg__gradient"></div>
+  <canvas class="bg__canvas" id="bgCanvas"></canvas>
+  <div class="bg__halftone"></div>
+  <div class="bg__vignette"></div>
+</div>
+
+<!-- Intro « To be continued » inversé : écran de titre -->
+<div class="intro" id="intro">
+  <div class="intro__burst"></div>
+  <div class="intro__title">
+    <span class="intro__small">KENJI'S</span>
+    <span class="intro__big">BIZARRE</span>
+    <span class="intro__mid">PORTFOLIO</span>
+  </div>
+  <div class="intro__jp">ゴ ゴ ゴ ゴ</div>
+  <button class="intro__start" id="introStart" type="button">▶ APPUYER POUR COMMENCER</button>
+</div>
+
+<a class="skip-link" href="#view">Aller au contenu</a>
+
+<main id="view" class="view" tabindex="-1"></main>
+
+<!-- Calque des transitions -->
+<div class="fx" id="fx" aria-hidden="true"></div>
+
+<!-- Bouton retour « To Be Continued » -->
+<a class="tbc" id="tbc" href="#/" aria-label="Retour au menu">
+  <span class="tbc__arrow"></span>
+  <span class="tbc__text">TO BE<br>CONTINUED</span>
+</a>
+
+<!-- Lecteur BGM (synthétisé en Web Audio, aucune musique sous droits) -->
+<div class="bgm" id="bgm">
+  <button class="bgm__toggle" id="bgmToggle" type="button" aria-pressed="false">BGM OFF</button>
+  <label class="bgm__vol">
+    <span>VOL</span>
+    <input id="bgmVol" type="range" min="0" max="1" step="0.01" value="0.45" aria-label="Volume de la musique">
+    <span id="bgmVolVal">45</span>
+  </label>
+  <button class="bgm__sfx" id="sfxToggle" type="button" aria-pressed="true">SFX ON</button>
+</div>
+
+<!-- Modale (images / viewer 3D) -->
+<div class="modal" id="modal" hidden>
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal__head">
+      <span class="modal__title" id="modalTitle"></span>
+      <button class="modal__close" type="button" data-close aria-label="Fermer">✕</button>
+    </div>
+    <div class="modal__body" id="modalBody"></div>
+  </div>
+</div>
+
+<noscript><p class="noscript">Ce portfolio a besoin de JavaScript. Contact : k.voisain@gmail.com</p></noscript>
+
+<script src="js/data.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/bg.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
